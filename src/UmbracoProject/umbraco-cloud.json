@@ -1,7 +1,18 @@
 {
   "Deploy": {
     "Project": {
-      "Workspaces": []
+      "Name": "umbraco cloud training course",
+      "Alias": "umbraco-cloud-training-course",
+      "Id": "1d500ddd-aa3d-4df1-b080-9bee01725af6",
+      "TrialExpireDate": "2024-12-02T17:33:56.0000000",
+      "Workspaces": [
+        {
+          "Id": "d23963d0-0e5f-4518-9ba6-320bdac7d343",
+          "Name": "Live",
+          "Type": "live",
+          "Url": "https://umbraco-cloud-training-course.euwest01.umbraco.io"
+        }
+      ]
     },
     "Settings": {}
   },
