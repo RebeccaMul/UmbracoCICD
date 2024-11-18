@@ -14,7 +14,9 @@
         }
       ]
     },
-    "Settings": {}
+    "Settings": {
+      "ApiKey": "4F4F24C00D4FB8038DCD4EBDBD00CFABE165DE94"
+    }
   },
   "Identity": {
     "ClientId": "0297c0f6-83ad-4481-9ae2-07a3f5475333",
