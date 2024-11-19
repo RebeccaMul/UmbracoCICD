@@ -1,0 +1,26 @@
+{
+  "Name": "Collision",
+  "Alias": "collision",
+  "DefaultTemplate": "umb://template/7e2005a8f9864b3aae7b76d4e57b21b4",
+  "AllowedTemplates": [
+    "umb://template/7e2005a8f9864b3aae7b76d4e57b21b4"
+  ],
+  "HistoryCleanup": {},
+  "Icon": "icon-document",
+  "Thumbnail": "folder.png",
+  "Permissions": {
+    "AllowedChildContentTypes": []
+  },
+  "CompositionContentTypes": [],
+  "PropertyGroups": [],
+  "PropertyTypes": [],
+  "Udi": "umb://document-type/8f89248494564003a5a57c4d58f1e5b6",
+  "Dependencies": [
+    {
+      "Udi": "umb://template/7e2005a8f9864b3aae7b76d4e57b21b4",
+      "Ordering": true
+    }
+  ],
+  "__type": "Umbraco.Deploy.Infrastructure,Umbraco.Deploy.Infrastructure.Artifacts.ContentType.DocumentTypeArtifact",
+  "__version": "13.2.2"
+}
