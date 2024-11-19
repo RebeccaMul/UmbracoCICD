@@ -1,0 +1,173 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@inject Umbraco.Cms.Web.Common.UmbracoHelper umbracoHelper
+@{
+    Layout = null;
+    IPublishedContent root = Model.Root();
+    var colorGradient1 = root.Value("colorSettingsGradientStart");
+    var colorGradient2 = root.Value("colorSettingsGradientEnd");
+    var colorAccent1 = root.Value("colorSettingsAccent1");
+    var colorAccent2 = root.Value("colorSettingsAccent2");
+    if (colorGradient1 == "" || colorGradient1 == null) { colorGradient1 = "#1b264f"; };
+    if (colorGradient2 == "" || colorGradient2 == null) { colorGradient2 = "#3e4c9f"; };
+    if (colorAccent1 == "" || colorAccent1 == null) { colorAccent1 = "#e9b1aa"; };
+    if (colorAccent2 == "" || colorAccent2 == null) { colorAccent2 = "#f5c0ba"; };
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Training Site</title>
+    <meta name="description" content="Umbraco Training Baseline">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- External CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@("@")5.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@("@")4.1.0-rc.0/dist/css/select2.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightcase/2.5.0/css/lightcase-no-breakpoint.css">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400|Work+Sans:300,400,700" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous">
+    <!-- Modernizr JS for IE8 support of HTML5 elements and media queries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+        <!-- External JS -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@("@")1.12.9/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@("@")4.0.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stellar.js/0.6.2/jquery.stellar.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightcase/2.5.0/js/lightcase.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/3.0.0/noframework.waypoints.min.js"></script>
+    <script src="https://unpkg.com/aos@("@")next/dist/aos.js"></script>
+    <!-- Main JS -->
+    <script src="/scripts/app.js "></script>
+    <!-- inline CSS so we can style according to the colors picked by users -->
+    <style>
+        .jumbotron {
+            color: #fff;
+        }
+            .jumbotron:before {
+                background: @colorGradient1;
+                background: -webkit-linear-gradient(to right, @colorGradient1, @colorGradient2);
+                background: linear-gradient(to right, @colorGradient1, @colorGradient2);
+            }
+        .rectangle-1, .rectangle-2 {
+            background: @colorAccent1;
+            background: -webkit-linear-gradient(to right, @colorAccent1, @colorAccent1);
+            background: linear-gradient(to right, @colorAccent1, @colorAccent2);
+        }
+        .int-link:hover, .clickable:hover, .footer-icon:hover, .uppercase a:hover {
+            color: @colorGradient1;
+        }
+        .owl-dot span {
+            background-color: @colorGradient2;
+        }
+        .featured {
+            border: 2px dashed @colorGradient2;
+        }
+        .feature-item a:hover {
+            color: @colorAccent1;
+        }
+        .uppercase a, .testi-icon, .clickable, .footer-icon, .blog-share, .blog-tag {
+            color: @colorGradient2;
+        }
+        .blog-title p {
+            color: @colorGradient2;
+            outline: 1px solid @colorGradient2;
+        }
+        .blog-share:hover, .blog-tag span:hover {
+            color: @colorGradient1;
+        }
+        .form-control:focus {
+            border-color: @colorAccent1;
+        }
+        .side-nav a {
+            color: @colorGradient2;
+        }
+        .nav-current {
+            color: @colorGradient1 !important;
+            padding: 0 2px;
+            outline: 1px solid @colorGradient1;
+        }
+        .btn-primary {
+            background-color: @colorGradient2;
+            border-color: @colorGradient2;
+        }
+            .btn-primary:hover {
+                background-color: @colorGradient1;
+                border-color: @colorGradient1;
+            }
+
+        .owl-dot.active > span {
+            box-shadow: 0 0 0 2px @colorGradient2;
+        }
+        .overlay:before {
+            background: @colorGradient1;
+            background: -webkit-linear-gradient(to right, @colorGradient1, @colorGradient2);
+            background: linear-gradient(to right, @colorGradient1, @colorGradient2);
+        }
+    </style>
+
+</head>
+<body data-spy="scroll" data-target="#navbar" class="static-layout">
+    <nav id="header-navbar" class="navbar navbar-expand-lg py-4">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center text-white align-self-start" href="/">
+                <h3 class="font-weight-bolder mb-0">
+                        <span>@root.Value("companyName")</span>
+                </h3>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-nav-header" aria-controls="navbar-nav-header" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="lnr lnr-menu"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar-nav-header">
+                <ul class="navbar-nav ml-auto">
+                    
+                        @foreach (var child in Model.Root().Children()){
+    <li class="nav-item">
+        <a class="nav-link" href="@child.Url()">@child.Name</a>
+    </li>
+}
+            </div>
+            </ul>
+        </div>
+        </div>
+    </nav>
+    </div>
+ 
+ @RenderBody()
+
+     <footer class="mastfoot my-3">
+        <div class="inner container">
+            <div class="row">
+                <div class="col-lg-4 col-md-12 d-flex align-items-center"></div>
+                <div class="col-lg-4 col-md-12 d-flex align-items-center">
+                    <p class="mx-auto text-center mb-0">@root.Value("companyName") | @root.Value("companyAddress") | @root.Value("companyPhone")</p>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <nav class="nav nav-mastfoot justify-content-center">
+                        <a class="nav-link footer-icon" href="https://twitter.com/umbraco">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a class="nav-link footer-icon" href="https://www.instagram.com/umbraco">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a class="nav-link footer-icon" href="https://www.linkedin.com/company/umbraco">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a class="nav-link footer-icon" href="https://www.youtube.com/c/UmbracoHQ">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
