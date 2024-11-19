@@ -1,0 +1,78 @@
+{
+  "Name": "Home Page",
+  "Alias": "homePage",
+  "DefaultTemplate": "umb://template/a552bc506dc14dbba8c764ef5c9e2995",
+  "AllowedTemplates": [
+    "umb://template/a552bc506dc14dbba8c764ef5c9e2995"
+  ],
+  "HistoryCleanup": {},
+  "Icon": "icon-home color-green",
+  "Thumbnail": "folder.png",
+  "Permissions": {
+    "AllowedAtRoot": true,
+    "AllowedChildContentTypes": [
+      "umb://document-type/2829f86015a84c73b6e7f212dbdcf92b"
+    ]
+  },
+  "CompositionContentTypes": [],
+  "PropertyGroups": [
+    {
+      "Key": "5db454bb-866a-4521-8768-a3a874307503",
+      "Name": "Header",
+      "Alias": "header",
+      "PropertyTypes": [
+        {
+          "Key": "865638dc-1bd8-4cc0-81ca-1aaacbf6501d",
+          "Alias": "highlightText",
+          "DataType": "umb://data-type/0cc0eba1996042c9bf9b60e150b429ae",
+          "Name": "Highlight Text",
+          "SortOrder": 1
+        },
+        {
+          "Key": "e4979e8a-b80d-48bf-b7e7-2b9b9c4d4271",
+          "Alias": "companyName",
+          "DataType": "umb://data-type/0cc0eba1996042c9bf9b60e150b429ae",
+          "Name": "Company Name"
+        }
+      ]
+    },
+    {
+      "Key": "7cacd440-bcfb-4ed1-bde8-fda6c434e6ed",
+      "Name": "Footer",
+      "SortOrder": 1,
+      "Alias": "footer",
+      "PropertyTypes": [
+        {
+          "Key": "992bae32-366a-4e21-bc05-0d7ed133bf2a",
+          "Alias": "companyAddress",
+          "DataType": "umb://data-type/0cc0eba1996042c9bf9b60e150b429ae",
+          "Name": "Company Address"
+        },
+        {
+          "Key": "fae828a7-b383-4810-85e2-84832dbf4806",
+          "Alias": "companyPhone",
+          "DataType": "umb://data-type/0cc0eba1996042c9bf9b60e150b429ae",
+          "Name": "Company Phone",
+          "SortOrder": 1
+        }
+      ]
+    }
+  ],
+  "PropertyTypes": [],
+  "Udi": "umb://document-type/48a687612df441da9df5eba33127703a",
+  "Dependencies": [
+    {
+      "Udi": "umb://data-type/0cc0eba1996042c9bf9b60e150b429ae",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://document-type/2829f86015a84c73b6e7f212dbdcf92b"
+    },
+    {
+      "Udi": "umb://template/a552bc506dc14dbba8c764ef5c9e2995",
+      "Ordering": true
+    }
+  ],
+  "__type": "Umbraco.Deploy.Infrastructure,Umbraco.Deploy.Infrastructure.Artifacts.ContentType.DocumentTypeArtifact",
+  "__version": "13.2.2"
+}
