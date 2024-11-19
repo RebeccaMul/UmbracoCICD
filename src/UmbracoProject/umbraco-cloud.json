@@ -7,6 +7,12 @@
       "TrialExpireDate": "2024-12-02T17:33:56.0000000",
       "Workspaces": [
         {
+          "Id": "237003b7-1885-4e22-b0bc-f42b4fb54a8a",
+          "Name": "Development",
+          "Type": "development",
+          "Url": "https://dev-umbraco-cloud-training-course.euwest01.umbraco.io"
+        },
+        {
           "Id": "d23963d0-0e5f-4518-9ba6-320bdac7d343",
           "Name": "Live",
           "Type": "live",
