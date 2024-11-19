@@ -1,0 +1,19 @@
+{
+  "Name": "Blogs Folder",
+  "Alias": "BlogsFolder",
+  "File": "umb://template-file/BlogsFolder.cshtml",
+  "Master": "umb://template/cfae7018189f4838b0e9723f617e9f76",
+  "Udi": "umb://template/33333d1b803d4d3282b07ce87f7137e2",
+  "Dependencies": [
+    {
+      "Udi": "umb://template-file/BlogsFolder.cshtml",
+      "Ordering": true
+    },
+    {
+      "Udi": "umb://template/cfae7018189f4838b0e9723f617e9f76",
+      "Ordering": true
+    }
+  ],
+  "__type": "Umbraco.Deploy.Infrastructure,Umbraco.Deploy.Infrastructure.Artifacts.TemplateArtifact",
+  "__version": "13.2.2"
+}

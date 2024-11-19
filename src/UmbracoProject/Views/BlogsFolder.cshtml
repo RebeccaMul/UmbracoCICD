@@ -1,0 +1,98 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.BlogsFolder>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.PublishedCache;
+@inject ITagQuery _tagQuery;
+@{
+    Layout = "Master.cshtml";
+        var blogs = Model.Children<Blog>()
+    .OrderByDescending(x => x.CreateDate);
+    var allContentTags = _tagQuery.GetAllContentTags();
+}
+<div class="jumbotron jumbotron-small jumbotron-single d-flex align-items-center">
+  <div class="container text-center">
+    <h1 class="display-2 mb-4">@Model.Name</h1>
+  </div>
+</div>
+<section id="blog" class="bg-grey">
+    <div class="container">
+        <div class="section-content">
+            <div class="title-wrap mb-5 aos-init aos-animate">
+                <h2 class="section-title">Blogs</h2>
+                <div class="blog-tag">
+    <h6>
+        <span class="clickable" onclick="clearSelections()"> Everything </span> |
+            @foreach (var tag in allContentTags)
+            {
+                string passParam = "'" + tag.Text + "'";
+                <span class="clickable" onclick="toggleBlogItems(@passParam)"> @tag.Text </span>
+            }
+    </h6>
+</div>
+            </div>
+            <div class="row">
+                <!-- Blog -->
+                <div class="col-md-12 blog-holder">
+                    <div class="row">
+                        @foreach (var item in blogs)
+                        {
+                            string author = item.Value<string>("author");
+                            if (item.Value<string>("author") == "" || item.Value("author") == null) { author = "Anonymous"; };
+                            <!-- Blog Item -->
+    <div class="col-md-4 blog-item-wrapper">
+        <div class="blog-item">
+            <div class="blog-img">
+                 <a href="@item.Url()">
+                        <img src="https://via.placeholder.com/400x250" alt="">
+                </a>
+            </div>
+            <div class="blog-text">
+                <div class="blog-tag">
+    <h6>
+        <small data-cats="@String.Join(" ", item.Categories)">@String.Join(" | ", item.Categories)</small>
+    </h6>
+</div>
+                <div class="blog-title">
+                    <a href="@item.Url()"><h4>@item.Name</h4></a>
+                </div>
+                <div class="blog-meta">
+                    <p class="blog-date">@item.CreateDate.ToString("MMMM dd, yyyy")</p>
+                </div>
+                <div class="blog-desc">
+                    <p>@item.Summary</p>
+                </div>
+                <div class="blog-author">
+                    <p>by @author</p>
+                </div>
+                <div class="blog-share-wrapper">
+                    <a class="blog-share" href="https://www.facebook.com/">
+                        <i class="fab fa-facebook-square"></i>
+                    </a>
+                    <a class="blog-share" href="https://www.twitter.com/">
+                        <i class="fab fa-twitter-square"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- End of Blog Item -->
+                        }
+                    </div>
+                </div>
+                <!-- End of Blog -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg-fixed overlay">
+    <div class="container">
+        <div class="section-content">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h2 class="mb-2"></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
