@@ -4,6 +4,7 @@
 @inject Umbraco.Cms.Web.Common.UmbracoHelper umbracoHelper
 @{
     Layout = "Master.cshtml";
+    var repos = UmbracoProject.Code.GithubHelper.GetRepositories("umbraco");
 }
 
 
@@ -19,6 +20,11 @@
 <section id="features" class="bg-white">
     <div class="container">
         <div class="section-content">
+            @foreach (var repo in repos)
+            {
+                <h1>@repo.FullName</h1>
+                <p>@repo.Description</p>
+            }
             <!-- Section Title -->
             <div class="title-wrap mb-5">
                 <h2 class="section-title">
